@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ContatoModel>
+
+@{
     ViewData["Title"] = "listagem de contatos";
 }
 
@@ -8,7 +10,27 @@
          <a class="btn btn-primary" ole="button" asp-controller="Contato" asp-action="Criar">Adicionar novo contato</a>
      </div>
      <br/>
-    <h1 class="display-4">Listagem de contatos</h1>
+
+    @if(TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">  
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+    }
+    
+    <br />
+
+  <h1 class="display-4">Listagem de contatos</h1>
 
     <table class="table">
         <thead>
@@ -21,42 +43,22 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>mark@gmail.com</td>
-                <td>32 987158659</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-outline-success" asp-controller="Contato" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-outline-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton@gmail.com</td>
-                <td>32 987158659</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-outline-success" asp-controller="Contato" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-outline-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Jacob</td>
-                <td>Thornton@gmail.com</td>
-                <td>32 987158659</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="button" class="btn btn-outline-success" asp-controller="Contato" asp-action="Editar">Editar</a>
-                        <a role="button" class="btn btn-outline-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
-                    </div>
-                </td>
-            </tr>
+            @if(Model != null && Model.Any()){
+                foreach(ContatoModel contato  in Model){
+                <tr>
+                    <th scope="row">@contato.Id</th>
+                        <td>@contato.Nome</td>
+                        <td>@contato.Email</td>
+                        <td>@contato.Celular</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a role="button" class="btn btn-outline-success" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-outline-danger" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="ApagarConfirmacao">Apagar</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            }
         </tbody>
     </table>
 

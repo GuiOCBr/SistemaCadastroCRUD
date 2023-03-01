@@ -1,4 +1,6 @@
-﻿using SistemaCadastro.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SistemaCadastro.Data;
+using SistemaCadastro.Repositorio;
 
 namespace SistemaCadastro
 {
@@ -15,7 +17,8 @@ namespace SistemaCadastro
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>();
+            services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

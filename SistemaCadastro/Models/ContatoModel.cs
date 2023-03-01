@@ -4,7 +4,11 @@
     {
         public int Id { get; set; }
 
-        public string Nome {set; set; }
+        public string Nome {get; set; }
+
+        public string Email { set; get; }
+
+        public string Celular { get; set; }
 
 
     }

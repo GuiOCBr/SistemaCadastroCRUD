@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\SistemaCadastro.bundle.scp.css"
     },
     {
+      "Id": "D:\\ProjetosGitHub\\SistemaCadastro\\SistemaCadastro\\wwwroot\\Imagens\\Rh.jpg",
+      "PackagePath": "staticwebassets\\Imagens\\Rh.jpg"
+    },
+    {
+      "Id": "D:\\ProjetosGitHub\\SistemaCadastro\\SistemaCadastro\\wwwroot\\Imagens\\interface-edit-cutter.png",
+      "PackagePath": "staticwebassets\\Imagens\\interface-edit-cutter.png"
+    },
+    {
       "Id": "D:\\ProjetosGitHub\\SistemaCadastro\\SistemaCadastro\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

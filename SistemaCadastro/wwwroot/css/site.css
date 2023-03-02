@@ -30,3 +30,10 @@ body {
     height:31px;
 
 }
+
+.nav-link {
+    font-size: 20px;
+    position: relative;
+    left: 850px;
+}
+

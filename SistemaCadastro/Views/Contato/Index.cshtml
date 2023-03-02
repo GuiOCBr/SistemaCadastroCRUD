@@ -6,10 +6,6 @@
 
  <div class="text-center">
 
-     <div class="d-grip gap-2 d-md-flex justify-content-md-start">
-         <a class="btn btn-primary" ole="button" asp-controller="Contato" asp-action="Criar">Adicionar novo contato</a>
-     </div>
-     <br/>
 
     @if(TempData["MensagemSucesso"] != null)
     {
@@ -30,12 +26,12 @@
     
     <br />
 
-  <h1 class="display-4">Listagem de contatos</h1>
+  <h5 class="display-4">Listagem de contatos</h5><br />
 
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Identificador</th>
                 <th scope="col">Nome</th>
                 <th scope="col">E-mail</th>
                 <th scope="col">Celular</th>
@@ -62,5 +58,8 @@
         </tbody>
     </table>
 
+    <div class="justify-content-md-start display-4">
+        <a class="btn btn-outline-success " role="button" asp-controller="Contato" asp-action="Criar">Adicionar novo contato</a>
+    </div>
  </div>
 
